@@ -28,7 +28,7 @@ const ProgressBar = ({ value, size }) => {
     <Wrapper
       style={style}
       role="progressbar"
-      aria-valuenow={{ value }}
+      aria-valuenow={value}
       aria-valuemin="0"
       aria-valuemax="100"
     >
@@ -46,6 +46,9 @@ const Wrapper = styled.div`
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px rgba(128, 128, 128, 0.35);
   border-radius: var(--wrapper-border-radius);
+
+  /* Truncate corners of the bar inside when the value is close or equal to 100 */
+  overflow: hidden;
 `;
 
 const Bar = styled.div`
